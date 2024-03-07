@@ -1,0 +1,61 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TenButtonFrame extends JFrame{
+
+	public TenButtonFrame() {
+		//1 set title 
+		setTitle("Button Frame");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//컨테이너 
+		Container c = getContentPane();
+		c.setLayout(new GridLayout());
+		
+		
+		JButton btn0 = new JButton("0");
+		JButton btn1 = new JButton("1");
+		
+		
+		// listen
+		btn1.addActionListener(new MyListener());
+		
+		//3 
+		c.add(btn0);
+		c.add(btn1);
+		c.add(new JButton("2"));
+		c.add(new JButton("3"));
+		c.add(new JButton("4"));
+		c.add(new JButton("5"));
+		c.add(new JButton("6"));
+		c.add(new JButton("7"));
+		c.add(new JButton("8"));
+		c.add(new JButton("9"));
+		c.add(new JButton("10"));
+		
+		//4 레이아웃 )
+		
+		// set size 
+		setSize(800,400);
+		setVisible(true);
+	}
+	
+	
+	class MyListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			//JButton b = (JButton)e.getSource();
+			
+			btn0.setText("눌림");
+
+			
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new TenButtonFrame();
+	}
+
+}

@@ -1,0 +1,33 @@
+import java.awt.*;
+
+import javax.swing.*;
+
+public class TenButtonFrame extends JFrame{
+
+	public TenButtonFrame() {
+		//1 set title 
+		setTitle("Button Frame");
+		// EXIT
+		
+		//3 
+		//Container c = getComponent()
+		//Container c = new Container();
+		Container c = new Container();
+		
+		c.add(new JButton("1"));
+		c.add(new JButton("2"));
+		c.add(new JButton("3"));
+		
+		//4 ·¹ÀÌ¾Æ¿ô )
+		c.setLayout(new GridLayout());
+		// set size 
+		setSize(300,300);
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new TenButtonFrame();
+	}
+
+}

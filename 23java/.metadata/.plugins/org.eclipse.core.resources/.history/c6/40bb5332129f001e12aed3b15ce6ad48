@@ -1,0 +1,62 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class TenButtonFrame extends JFrame{
+
+	public TenButtonFrame() {
+		//1 set title 
+		setTitle("Button Frame");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//컨테이너 
+		Container c = getContentPane();
+		c.setLayout(new GridLayout());
+		
+		// listen
+		JButton btn = new JButton("1");
+		btn.addActionListener(new MyListener());
+		
+		//3 
+		c.add(new JButton("0"));
+		c.add(btn);
+		c.add(new JButton("2"));
+		c.add(new JButton("3"));
+		c.add(new JButton("4"));
+		c.add(new JButton("5"));
+		c.add(new JButton("6"));
+		c.add(new JButton("7"));
+		c.add(new JButton("8"));
+		c.add(new JButton("9"));
+		c.add(new JButton("10"));
+		
+		//4 레이아웃 )
+		
+		// set size 
+		setSize(300,300);
+		setVisible(true);
+	}
+	
+	
+	class MyListener1 implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JButton b = (JButton)e.getSource();
+			
+			b.setText("눌림 ");
+		}
+	}
+	class MyListenerOthers implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JButton b = (JButton)e.getSource();
+			
+			b.setText("눌림 ");
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new TenButtonFrame();
+	}
+
+}

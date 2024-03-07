@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;MouseListenserEx.java&apos; to &apos;MouseListenerEx.java&apos;&#x0D;&#x0A;- Original project: &apos;Chap10&apos;&#x0D;&#x0A;- Original element: &apos;MouseListenserEx.java&apos;&#x0D;&#x0A;- Renamed element: &apos;MouseListenerEx.java&apos;" description="Rename compilation unit &apos;MouseListenserEx.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{MouseListenserEx.java" name="MouseListenerEx.java" references="false" stamp="1699261990159" version="1.0"/>
+</session>

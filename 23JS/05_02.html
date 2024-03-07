@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Output</title>
+</head>
+
+<body>
+
+	<h1>HTML DOM 요소를 이용한 innerHTML 프로퍼티</h1>
+	<p id="text">이 문장을 바꿀 것입니다!</p>
+	
+	<script>
+		var str = document.getElementById("text"); // p 태그 안에 id 값으로 불렀음. 도큐먼트. 겟 엘리먼트
+		str.innerHTML = "이 문장으로 바뀌었습니다!"; // str 이란 도큐먼트의 엘리먼트 를 innnerHTML 프로퍼티 로 수정 
+        // 잠깐!! 프로퍼티와 메소드의 차이는?? 
+        // 프로퍼티는 속성, 메소드는 행동. 메소드는 ()로 끝나고, 속성은 그저 부르는 것! 
+	</script>
+	
+</body>
+
+</html>

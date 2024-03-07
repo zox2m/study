@@ -1,0 +1,30 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class ClickPracticeFrame extends JFrame{
+	
+	private JLabel la = new JLabel("c");
+	
+	public ClickPracticeFrame() {
+		
+		setTitle("클릭 연습");
+		
+		Container c = getContentPane();
+		
+		
+		
+		// set size 
+		setSize(800,400);
+		setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+}

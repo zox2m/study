@@ -1,0 +1,81 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ItemEvent;
+
+public class LottoMaker extends JFrame{
+	
+	// text Area 
+	private JTextArea ta = new JTextArea(7,20); // 가로길이, 세로길이 
+	
+	
+	
+	public LottoMaker() {
+		setTitle("로또 생성기");
+		
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		// 버튼 그룹
+		ButtonGroup g = new ButtonGroup();
+		
+		// 라디오 버튼 
+		JRadioButton first = new JRadioButton("로또 8-6");
+		JRadioButton second = new JRadioButton("로또 8-6");
+		JRadioButton third = new JRadioButton("로또 8-6");
+		
+		//  그냥 버튼 두개 
+		
+		JButton gen = new JButton("생성");
+		JButton vari = new JButton("검증");
+		
+		//버튼 그룹에 추가 
+		g.add(first);
+		g.add(second);
+		g.add(third);
+		
+		//컨텐트 팬에 추가 
+		c.add(first);
+		c.add(second);
+		c.add(third);
+		
+		//텍스트 영역 추가 
+		c.add(new JScrollPane(ta));
+		
+		//버튼 추가 
+		c.add(gen);
+		c.add(vari);
+		
+		
+		setSize(250,300);
+		setVisible(true);
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LottoPrinter lp = new LottoPrinter();//LottoPrinter를 호출할 객체 선언
+		
+		new LottoMaker();
+
+		int result[];// 로또 번호를 정수 배열 result에 저장
+				
+		LottoM LM = new LottoM(10, 8);//생성자 LottoM을 호출하여 n의 크기 지정
+		result=LM.LottoGen();//LotGen으로 생성된 번호를 result에 저장
+		lp.LPrinter(result, 8);//로또 번호를 LottoPrinter로 호출
+		
+		
+
+	}
+	
+	// 라디오 버튼 리스너 
+	class MyItemListener implements ItemListener{
+		public void itemStateChange(ItemEvent e) {
+			if(e.getStateChange() == ItemEvent.DESELECTED);
+				// 보류 
+				return;
+			if(radio[0].isSelected()) 
+		}
+	}
+
+}
