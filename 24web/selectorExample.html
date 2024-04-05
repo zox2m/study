@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> selector example</title>
+        
+        <style>
+            /*
+            div+p
+            p:first-child
+            div p:first-child
+            p[style]
+            p.dku
+            */
+            div p:first-child{
+                color:red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <p> this is a paragraph.</p>
+            <p style="text-align: right;"> this is a paragraph.</p>
+        </div>
+
+        <p> this is a paragraph.</p>
+            <p class="dku"> this is a paragraph.</p>
+    </body>
+</html>
