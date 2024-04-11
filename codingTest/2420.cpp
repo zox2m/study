@@ -3,11 +3,10 @@
 using namespace std;
 
 int main(){
-    int n,m,result;
+    int n,m;
     cin >>n>>m;
-    result = n-m;
-    if((result)<0) result*=-1;
+    if(n>m) cout<<n-m;
+    else cout<<m-n;
 
-    cout<<result;
     return 0;
 }
