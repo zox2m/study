@@ -2,13 +2,9 @@
 using namespace std;
 
 int main(){
-    int a,b,t;
-    cin>>t;
-
-    for(int i=0;i<t;i++){
-        cin>>a>>b;
-        cout<<a+b;
-    }
-
+    int n;
+    cin >> n;
+    for(int i=1;i<n;i++)cout<<i<<endl;
+    cout<<n;
     return 0;
 }

@@ -9,7 +9,8 @@ int main(){
     if(score >89) cout<<"A";
     else if(score >79) cout<<"B";
     else if(score >69) cout<<"C";
-    else cout<<"D";
+    else if(score >59) cout<<"D";
+    else cout<<"F";
 
     return 0;
 
