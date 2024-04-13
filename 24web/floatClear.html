@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>float clear</title>
+    <style>
+        body{
+            width:960;
+            margin: 0 auto;
+        }
+        .clear{
+            clear:both;
+        }
+        #aside{
+            float: left;
+            width: 260px;
+        }
+        #section{
+            float: right;
+            width:700px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Header</h1>
+    </div>
+    <div id="navigation">
+        <h1>navigation</h1>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="aside">
+        <h1>aside</h1>
+        <p> some text</p>
+    </div>
+    <div id="section">
+        <h1>section</h1>
+        <p> some text</p>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="footer">
+        <h1>footer</h1>
+    </div>
+    <div class="clear"></div>
+
+</body>
+
+</html>
