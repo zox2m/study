@@ -3,36 +3,100 @@
         <meta charset="utf-8">
         <title>My Homepage</title>
         <style>
+            /* condition #1 */ 
             body {
                 width: 960px;
                 margin: 0 auto;
             }
+            /* condition #2 */ 
             .clear {
                 clear:both;
             }
+            /*condition #3*/
+            table, th, td{
+                border: 2px solid rgb(236, 236, 236);
+                border-collapse: collapse;
+                padding: 5px 10px 5px 10px;
+                text-align: center;
+            }
+            table{
+                margin: 10px;
+                width: 90%;
+            }
+            th{
+                background-color: lightgray;
+            }
+
+            /*condition #4 */ 
+            #section div{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            .imgBox{
+                width:170px;
+                height:170px;
+                overflow: hidden;
+                
+                border: 4px solid black;
+                margin: 10px;
+            }
+            .imgBox img{
+                overflow: hidden;
+                
+                object-fit: cover;
+
+                width:100%;
+                height:100%;
+            }
+
             #header{
                 text-align: center;
+                background-color: black;
+                color: white;
+            }
+            #navigation{
+                background-color: gray;
+                color: white;
+                padding-top: 10px;
+                padding-bottom: 10px;
             }
             #aside {
                 float: left;
                 width: 260px;
+                text-align: center;
             }
             #section {
                 float: right;
                 width: 700px;
+                background-color: lightgray;
+                text-align: center;
+                display: block;
+
+            }
+            #footer{
+                text-align: center;
+                padding: 20px 0px 20px 0px;
             }
             p {
                 margin:0;
             }
-
             h1 {
                 margin:0;
             }
+            
+            a{
+                margin: 0px 10px 0px 10px;
+                color: white;
+                text-decoration: none;
+            }
+
         </style>
     </head>
     <body>
         <div id="header">
-            <h1>Header</h1>
+            <h1>서주민의 홈페이지</h1>
         </div>
 
         <div id="navigation">
@@ -46,7 +110,7 @@
         <div class="clear"></div>
 
         <div id="aside">
-            <h1>32202177 서주민</h1>
+            <h3>32202177 서주민</h3>
             <img src="https://i.pinimg.com/736x/d2/34/76/d23476622642d155cb742e5914bce975.jpg" style="width: 50%;">
             <br>
             
@@ -72,17 +136,33 @@
                     <td> 4학년</td>
                 </tr>
             </table>
-            <p>Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome text</p>
         </div>
 
         <div id="section">
-            <h1>Section</h1>
-            <p>Some text</p>
+            <h3>Education</h3>
+            <p>2024 웹 프로그래밍 </p>
+            <hr>
+            <h3>Skills</h3>
+
+            <!-- condition #5-->
+            <div> 
+                <div class="imgBox">      <img src="./images/cs.jpg"> <!-- 씨샵  -->      </div>
+                <div class="imgBox">      <img src="./images/cpp.jpg"><!-- 씨플플 -->      </div>
+                <div class="imgBox">      <img src="./images/git.png"> <!-- 깃헙 -->       </div>
+                <div class="imgBox">      <img src="./images/unity.jpg"> <!-- 유니티 -->     </div>
+                <div class="imgBox">      <img src="./images/unreal.png"> <!-- 언리얼  -->    </div>
+                <div class="imgBox">      <img src="./images/figma.jpg"><!-- 피그마 -->      </div>
+            </div>
+
+            
+
+
+            
         </div>
-        <div class="clear">asd</div>
+        <div class="clear"></div>
 
         <div id="footer">
-            <h1>Footer</h1>
+            <p class="center"><I> Copyright @ 2024 Jumin Seo </I></p>
         </div>
         <div class="clear"></div>
     </body>
