@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2024 by anonymous (http://jsbin.com/risufatovu/12/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+.container{
+  background-color: beige;
+  height: 100vh;
+  
+  /* 이거 넣으면 옆으로 정렬됨!*/
+  display: flex;
+
+  /*이걸 넣으면 화면을 줄여도(넘쳐도) 쪼글아들음*/
+  /*flex-wrap: nowrap;*/ /*디폴트임*/
+
+  /*이거 넣으면 컨테이너 크기 유지돼서 화면 줄이면 줄바꿈됨*/
+  flex-wrap: wrap;
+
+  /*역순 정렬 */
+  flex-direction: row-reverse; 
+  
+}
+
+.item{
+  color:white;  
+  width: 40px;
+  height:48px;
+  border: 1px solid black;
+}
+
+.item1{
+  background-color:#4e1c87;
+}
+
+.item2{
+  background-color:#71499f;
+}
+
+.item3{
+  background-color:#9476b7;
+}
+
+.item4{
+  background-color:#b8a4cf;
+}
+
+.item5{
+  background-color:#dbd1e7;
+}
+
+.item6{
+  background-color:#4e1c87;
+}
+
+.item7{
+  background-color:#dbd1e7;
+}
+
+.item8{
+  background-color:#9476b7;
+}
+
+.item9{
+  background-color:#71499f;
+}
+
+.item10{
+  background-color:#4e1c87;
+}
+
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+    <div class="item item9">9</div>
+    <div class="item item10">10</div>
+  </div>
+</body>
+</html>
