@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>202401234 김다누</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 0;
+        }
+        h1 {
+            margin: 0;
+            padding: 20px 0;
+        }
+        #products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .product-item {
+            padding: 10px;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+        #footer {
+            text-align: center;
+            padding: 20px 0px 20px 0px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h2>202401234 김다누</h2>
+    </div>
+    <h1>Compare the products</h1>
+    <div id="products">
+        <!-- Product items -->
+        <div class="product-item">
+            <img class="product-image" src="images/sph-a5000.jpg" alt="SPH-A5000">
+            <hr>
+            <p> <h3>SPH-A5000</h3></p>
+            <p>세계 최초의 전자동 폴더</p>
+        </div>
+        <div class="product-item">
+            <img class="product-image" src="images/sch-w120.jpg" alt="SCH-W120">
+            <hr>
+            <p><h3>SCH-W120</h3></p>
+            <p>한국 최초의 WCDMA 폰</p>
+        </div>
+        <div class="product-item">
+            <img class="product-image" src="images/sch-v500.jpg" alt="SCH-V500">
+            <hr>
+            <p><h3>SCH-V500</h3></p>
+            <p>가로본능 로테이션 폴더폰</p>
+        </div>
+        <div class="product-item">
+            <img class="product-image" src="images/sch-s250.jpg" alt="SCH-S250">
+            <hr>
+            <p><h3>SCH-S250</h3></p>
+            <p>세계 최초의 500만 화소 카메라 탑재 휴대폰</p>
+        </div>
+    </div>
+    <div id="footer">
+        <p>Copyright © 2024 김다누</p>
+    </div>
+</body>
+</html>
