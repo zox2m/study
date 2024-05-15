@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>천문 현상 및 일출/일몰 시각 검색</title>
+
+    <style> 
+        #header{
+                    text-align: center;
+                    background-color: black;
+                    color: white;
+        }
+        #navigation{
+            background-color: gray;
+            color: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        #section {
+            float: center;
+            background-color: lightgray;
+            text-align: center;
+            display: block;
+        }
+        #footer{
+            text-align: center;
+            padding: 20px 0px 20px 0px;
+        }
+    </style>
 </head>
 <body>
-    <h1>천문 현상 및 일출/일몰 시각 검색</h1>
-    <button onclick="location.href='astro.html'">천문현상 검색</button>
-    <button onclick="location.href='sunrise.html'">일출 일몰 시각 검색</button>
+    <div id="header">
+        <h1>천문 현상 및 일출/일몰 시각 검색</h1>
+    </div>
+    
+    <div id="navigation">
+        <a href="#HOME">HOME</a> 
+        <a href="#Astro">Profile</a> 
+        <a href="#Sunrise">Education</a>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="section"> 
+        <button onclick="location.href='astro.html'">천문현상 검색</button>
+        <button onclick="location.href='sunrise.html'">일출 일몰 시각 검색</button>
+    </div>
+    
+    <div class="clear"></div>
+
+    <div id="footer">
+        <p class="center"><I> Copyright @ 2024 Jumin Seo </I></p>
+    </div>
+    <div class="clear"></div>
 </body>
 </html>

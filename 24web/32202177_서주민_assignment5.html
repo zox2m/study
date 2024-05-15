@@ -1,17 +1,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>My Homepage</title>
+        <title>Compare Product</title>
         <style>
+            /*Condition #2 */
             body{
-                background-color: yellow;
-                    width:1060px;
+                width:1060px;
                 text-align: center;
                 margin: 0 auto 0 auto;
             }
-
-            
-
 
             #header{
                 text-align: center;
@@ -23,7 +20,8 @@
                 text-align: center;
                 padding: 20px 0px 20px 0px;
             }
-            .shared-compare{
+            /*Condition #1 */
+            .grid-layout{
                 width: 980px;
             }
             .grid-container{
@@ -32,14 +30,6 @@
                 
                 gap: 50px;
             }
-            
-            .grid-item{
-                display: flex;
-                width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                justify-content: center;
-                align-items: center;
-            }
-
             .grid-item1{
                 display: flex;
                 width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
@@ -113,32 +103,7 @@
                 align-items: center;
             }
 
-            .grid-item13{
-                display: flex;
-                width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                justify-content: center;
-                align-items: center;
-            }
-            .grid-item14{
-                display: flex;
-                width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                justify-content: center;
-                align-items: center;
-            }
-            .grid-item15{
-                display: flex;
-                width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                justify-content: center;
-                align-items: center;
-            }
-            .grid-item16{
-                display: flex;
-                width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                justify-content: center;
-                align-items: center;
-            }
-
-
+            /*Condition #3 */
             @media only screen and (max-width: 1060px){
                 body{
                     background-color: blue;
@@ -187,68 +152,55 @@
                     justify-content: center;
                     align-items: center;
 
-                    grid-row: 3/4;
+                    grid-row: 2/3;
                 }
                 .grid-item7{
                     display: flex;
                     width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
                     justify-content: center;
                     align-items: center;
+
+                    grid-row: 5/6;
                 }
                 .grid-item8{
                     display: flex;
                     width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
                     justify-content: center;
                     align-items: center;
+
+                    grid-row: 5/6;
                 }
                 .grid-item9{
                     display: flex;
                     width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
                     justify-content: center;
                     align-items: center;
+
+                    grid-row: 3/4;
                 }
                 .grid-item10{
                     display: flex;
                     width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
                     justify-content: center;
                     align-items: center;
+
+                    grid-row: 3/4;
                 }
                 .grid-item11{
                     display: flex;
                     width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
                     justify-content: center;
                     align-items: center;
+
+                    grid-row: 6/7;
                 }
                 .grid-item12{
                     display: flex;
                     width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
                     justify-content: center;
                     align-items: center;
-                }
 
-                .grid-item13{
-                    display: flex;
-                    width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                    justify-content: center;
-                    align-items: center;
-                }
-                .grid-item14{
-                    display: flex;
-                    width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                    justify-content: center;
-                    align-items: center;
-                }
-                .grid-item15{
-                    display: flex;
-                    width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                    justify-content: center;
-                    align-items: center;
-                }
-                .grid-item16{
-                    display: flex;
-                    width: 100%;/*그리드 컨테이너를 넘어가지 않도록  */
-                    justify-content: center;
-                    align-items: center;
+                    grid-row: 6/7;
                 }
             }
 
@@ -260,7 +212,7 @@
         </div>
 
 
-        <div class="shared-compare">
+        <div class="grid-layout">
             <h1>Compare the products</h1>
             <ul class="grid-container">
                 <li class="grid-item1"><img src="images/sph-a5000.jpg"></li>
@@ -278,11 +230,10 @@
                 <li class="grid-item11"> 가로본능 로테이션 폴더폰 </li>
                 <li class="grid-item12"> 세계 최초의 500만 화소 카메라 탑재 휴대폰 </li>
 
-                <li class="grid-item"></li>
-                <li class="grid-item"></li>
-                <li class="grid-item"></li>
-                <li class="grid-item"></li>
-
+                <li class="grid-item1"></li>
+                <li class="grid-item1"></li>
+                <li class="grid-item1"></li>
+                <li class="grid-item1"></li>
 
             </ul>
             
