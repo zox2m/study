@@ -3,26 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>천문 현상 검색</title>
+    <link rel="stylesheet" href="common.css">
 </head>
 <body>
-    <h1>천문 현상 검색</h1>
-    <form action="astro_result.html" method="get">
-        년도: <input type="text" name="year" required>
-        월: <select name="month" required>
-            <option value="1">1월</option>
-            <option value="2">2월</option>
-            <option value="3">3월</option>
-            <option value="4">4월</option>
-            <option value="5">5월</option>
-            <option value="6">6월</option>
-            <option value="7">7월</option>
-            <option value="8">8월</option>
-            <option value="9">9월</option>
-            <option value="10">10월</option>
-            <option value="11">11월</option>
-            <option value="12">12월</option>
-        </select>
-        <button type="submit">검색</button>
-    </form>
+    <header>
+        <h1>천문 현상 검색</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="astro.html">천문현상 검색</a>
+        <a href="sunrise.html">일출 일몰 시각 검색</a>
+    </nav>
+
+    <main>
+        <form action="astro_result.html" method="get">
+            <label for="year">년도:</label>
+            <input type="text" id="year" name="year" required>
+            
+            <label for="month">월:</label>
+            <select id="month" name="month" required>
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7">7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
+            
+            <button type="submit">검색</button>
+        </form>
+    </main>
+
+    <footer>
+        <p><i>Copyright @ 2024 Jumin Seo</i></p>
+    </footer>
 </body>
 </html>

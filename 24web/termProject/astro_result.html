@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>천문 현상 검색 결과</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <header>
+        <h1>천문 현상 검색 결과</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="astro.html">천문현상 검색</a>
+        <a href="sunrise.html">일출 일몰 시각 검색</a>
+    </nav>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>천문현상명</th>
+                    <th>시간</th>
+                    <th>날짜</th>
+                    <th>설명</th>
+                </tr>
+            </thead>
+            <tbody id="results">
+                <!-- API 결과가 여기에 추가됩니다 -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p><i>Copyright @ 2024 Jumin Seo</i></p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var year = new URLSearchParams(window.location.search).get('year');
+            var month = new URLSearchParams(window.location.search).get('month');
+            var serviceKey = 'fC5An%2BEN3x%2F1TJZyWrX9IB1%2BPDtQxZeFu9LwWWX9S%2FpQSjZPkpR5e8DEz%2FBUfEEE3o%2BCSmJmJt8VXpG3sKN9Og%3D%3D'; // 서비스 키
+
+            // 천문현상 API 호출
+            $.ajax({
+                url: 'http://apis.data.go.kr/B090041/openapi/service/AstroEventInfoService/getAstroEventInfo',
+                method: 'GET',
+                data: {
+                    solYear: year,
+                    solMonth: month,
+                    ServiceKey: serviceKey,
+                },
+                success: function(data) {
+                    var results = $('#results');
+                    $(data).find('item').each(function() {
+                        var astroEvent = $(this).find('astroEvent').text();
+                        var astroTitle = $(this).find('astroTitle').text();
+                        var locdate = $(this).find('locdate').text();
+                        var remarks = $(this).find('remarks').text();
+                        
+                        results.append('<tr><td>' + astroEvent + '</td><td>' + astroTitle + '</td><td>' + locdate + '</td><td>' + remarks + '</td></tr>');
+                    });
+                },
+                error: function() {
+                    alert('데이터를 가져오는 데 실패했습니다.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

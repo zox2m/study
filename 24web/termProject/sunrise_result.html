@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>일출 일몰 시각 검색 결과</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <header>
+        <h1>일출 일몰 시각 검색 결과</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="astro.html">천문현상 검색</a>
+        <a href="sunrise.html">일출 일몰 시각 검색</a>
+    </nav>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>일출 시각</th>
+                    <th>일몰 시각</th>
+                    <th>월출 시각</th>
+                    <th>월몰 시각</th>
+                </tr>
+            </thead>
+            <tbody id="results">
+                <!-- API 결과가 여기에 추가됩니다 -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p><i>Copyright @ 2024 Jumin Seo</i></p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var date = new URLSearchParams(window.location.search).get('date');
+            var latitude = new URLSearchParams(window.location.search).get('latitude');
+            var longitude = new URLSearchParams(window.location.search).get('longitude');
+            var serviceKey = 'YOUR_SERVICE_KEY'; // 서비스 키를 여기에 넣으세요
+
+            // 일출 일몰 시각 API 호출
+            $.ajax({
+                url: 'http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo',
+                method: 'GET',
+                data: {
+                    locdate: date.replace(/-/g, ''),
+                    longitude: longitude,
+                    latitude: latitude,
+                    ServiceKey: serviceKey,
+                },
+                success: function(data) {
+                    var results = $('#results');
+                    $(data).find('item').each(function() {
+                        var sunrise = $(this).find('sunrise').text();
+                        var sunset = $(this).find('sunset').text();
+                        var moonrise = $(this).find('moonrise').text();
+                        var moonset = $(this).find('moonset').text();
+                        
+                        results.append('<tr><td>' + sunrise + '</td><td>' + sunset + '</td><td>' + moonrise + '</td><td>' + moonset + '</td></tr>');
+                    });
+                },
+                error: function() {
+                    alert('데이터를 가져오는 데 실패했습니다.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
