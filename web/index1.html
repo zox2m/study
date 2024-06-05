@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team TO-DO Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a3c9e2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        .sidebar {
+            width: 50px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .sidebar img {
+            width: 30px;
+            height: 30px;
+            margin: 20px 0;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+        }
+        .calendar, .progress {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 48%;
+        }
+        .bottom-section {
+            display: flex;
+            margin-top: 20px;
+            justify-content: space-between;
+        }
+        .team, .todo {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 48%;
+        }
+        .todo ul {
+            list-style: none;
+            padding: 0;
+        }
+        .todo li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="home-icon.png" alt="Home">
+        <img src="bell-icon.png" alt="Notifications">
+        <img src="profile-icon.png" alt="Profile">
+        <img src="help-icon.png" alt="Help">
+    </div>
+    <div class="container">
+        <div class="top-section">
+            <div class="calendar">
+                <h2>May 2024</h2>
+                <table>
+                    <tr>
+                        <th>일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                    </tr>
+                    <!-- Add calendar days here -->
+                    <tr>
+                        <td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+                    </tr>
+                    <tr>
+                        <td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+                    </tr>
+                    <tr>
+                        <td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+                    </tr>
+                    <tr>
+                        <td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="progress">
+                <h2>Progress</h2>
+                <div>
+                    <h3>33%</h3>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <div class="team">
+                <h2>Team</h2>
+                <ul>
+                    <li>Front-end</li>
+                    <li>Back-end</li>
+                    <li>Design</li>
+                    <li>AI</li>
+                </ul>
+            </div>
+            <div class="todo">
+                <h2>TEAM TO-DO CheckList</h2>
+                <ul>
+                    <li>
+                        <h3>클라우드 컴퓨팅</h3>
+                        <ul>
+                            <li><input type="checkbox"> 프로젝트 계획서</li>
+                            <li><input type="checkbox"> 최종 데모 발표</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>캡스톤 디자인</h3>
+                        <ul>
+                            <li><input type="checkbox"> 데이터셋 찾아보기</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Completed 33%</p>
+                <button>Add task</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
