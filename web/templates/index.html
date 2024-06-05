@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team ToDo App</title>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+<!-- 이런식으로 static들 추가해주기 -->
+<script src="../static/index.js"></script>
+<link rel="stylesheet" href="../static/styles.css">
+
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    <span class="team">Team</span><br>
+    <span class="todo">ToDo</span>
+  </div>
+  <nav>
+    <ul>
+      <li><button onclick="location.href='{{ url_for('index') }}'"><img src="{{ url_for('static', filename='yellowhome.png') }}" alt="Home"></button></li>
+      <li><button onclick="location.href='{{ url_for('edit_profile') }}'"><img src="{{ url_for('static', filename='blackprofile.png') }}" alt="Profile"></button></li>
+      <li><button onclick="location.href='{{ url_for('login') }}'"><img src="{{ url_for('static', filename='blacklogout.png') }}" alt="Logout"></button></li>
+      
+    </ul>
+  </nav>
+  <div class="help">
+    <button onclick="location.href='/help'"><img src="../static/help.png" alt="Help"></button>
+  </div>
+</div>
+<div class="main-container">
+  <div class="top-container">
+    <div class="top-left">
+      <div class="calendar-header">
+        <button class="calendar-nav-button prev-month">&lt;</button>
+        <h2 id="calendar-month">May 2024</h2>
+        <button class="calendar-nav-button next-month">&gt;</button>
+      </div>
+      <table id="calendar">
+        <thead>
+          <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 달력 날짜가 동적으로 생성될 부분 -->
+        </tbody>
+      </table>
+    </div>
+    <div class="top-right">
+      <div class="progress">
+        <h2>Progress</h2>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <p class="progress-percent">33%</p>
+      </div>
+      <div class="team-members">
+        <div class="team-list">
+          <h3>Team Members</h3>
+          <ul>
+            <li class="team-member-item" data-team="designer">Designer</li>
+            <li class="team-member-item" data-team="front-end">Front-end</li>
+            <li class="team-member-item" data-team="back-end">Back-end</li>
+            <li class="team-member-item" data-team="ai">AI</li>
+            <li class="team-member-item" data-team="planner">기획</li>
+          </ul>
+        </div>
+        <div class="member-details">
+          <div class="profile-set" id="user-profile">
+            <img src="../static/gu.png" alt="Member Profile" class="profile-pic">
+            <div class="profile-info">
+              <p class="name" id="profile-name"></p>
+              <p class="position" id="profile-position"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-container">
+    <div class="bottom-left">
+      <h2>Team To-Do CheckList</h2>
+      <div class="todo-controls">
+        <select class="todo-dropdown">
+          <option value="task">할 일</option>
+          <option value="title">제목</option>
+        </select>
+        <input type="text" id="todo-input" placeholder="내용을 입력하세요">
+        <button class="add-todo-button">+</button>
+      </div>
+      <ul id="todo-list">
+        <li>
+          <span class="content bold">홈페이지 UI 수정</span>
+          <button class="drag-handle">☰</button>
+        </li>
+        <li>
+          <span class="content"><input type="checkbox"> home 화면 비율 일치 (~5/13)</span>
+          <button class="drag-handle">☰</button>
+        </li>
+        <li>
+          <span class="content"><input type="checkbox"> 프로필 설정 페이지 색상 변경 (~5/28)</span>
+          <button class="drag-handle">☰</button>
+        </li>
+        <li>
+          <span class="content"><input type="checkbox"> Item Card</span>
+          <button class="drag-handle">☰</button>
+        </li>
+      </ul>
+    </div>
+    <div class="bottom-right">
+      <h2 class="bold">Notice</h2>
+      <div id="notice-list">
+        <p>신유진 님이 ToDo를 생성하였습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
