@@ -34,14 +34,11 @@ def login():
 
         # cur.close()
 
-        if user and password == user[2]: # 인덱스 2번이 비밀번호 칼럼 
-            # flash("Welcome to TeamToDo!", "success")
+        if user and password == user[2]:  # 인덱스 2는 password 컬럼
             return redirect(url_for('dashboard'))
-        #else :
-            # 로그인 못함 
-            
+        else:
+            return redirect(url_for('home'))
 
-#    return render_template('login.html')
     return render_template('login.html')
 
 

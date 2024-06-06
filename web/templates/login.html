@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="../static/button.js"></script>
-    <link rel="stylesheet" href="../static/login.css">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='button.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
     <div class="login-container">
         <h1>Welcome, We Are <span class="team-todo">"TeamToDo"</span></h1>
+
         <form class="login-form" method="POST" action="{{ url_for('login') }}">
             <div class="input-group">
                 <label for="username">ID</label>
@@ -19,9 +21,10 @@
                 <label for="password">PASSWORD</label>
                 <div class="password-container">
                     <input type="password" id="password" name="password" placeholder="password">
+                    <span class="password-toggle">&#128065;</span>
                 </div>
             </div>
-            <button type="submit"><b>login</b></button>
+            <button type="submit" id="login" disabled><b>login</b></button>
             <p class="signup-prompt">계정이 없으신가요? <a href="{{ url_for('signup') }}">회원가입</a></p>
         </form>
     </div>
