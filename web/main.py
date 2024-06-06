@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import pymysql
 
 app = Flask(__name__)
+app.secret_key = 'supersecretkey'  # 이 값을 고유하고 비밀스럽게 설정하세요
 
 db = pymysql.connect(host="localhost", user="lego",
                      passwd="lego", db="team_todo", charset="utf8")
@@ -16,34 +17,46 @@ app.config['MYSQL_DB'] = 'team_todo'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 '''
 
-@app.route('/')
 
 @app.route('/')
 def home():
-    return redirect(url_for('index'))
+    return render_template('login.html')
 
 @app.route('/login', methods=['GET', 'POST'])
-def login():
+def login():    
     if request.method == 'POST':
         username = request.form['username']
-        password = request.form['password'].encode('utf-8')
+        password = request.form['password']
 
-        
+        # 사용자 정보 조회 
         cur.execute("SELECT * FROM users WHERE username=%s", (username,))
         user = cur.fetchone()
-        cur.close()
 
-        if user and bcrypt.checkpw(password, user['password'].encode('utf-8')):
-            flash("Welcome to TeamToDo!", "success")
-            return redirect(url_for('index'))
-        else:
-            flash("Invalid username or password", "danger")
+        # cur.close()
 
-    return render_template('index.html')
+        if user and password == user[2]: # 인덱스 2번이 비밀번호 칼럼 
+            # flash("Welcome to TeamToDo!", "success")
+            return redirect(url_for('dashboard'))
+        #else :
+            # 로그인 못함 
+            
 
-@app.route('/index')
-def index():
-    return render_template('index.html')
+#    return render_template('login.html')
+    return render_template('login.html')
+
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/edit_profile')
+def edit_profile():
+    return render_template('edit_profile.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

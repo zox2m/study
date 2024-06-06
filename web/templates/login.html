@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <script src="../static/button.js"></script>
+    <link rel="stylesheet" href="../static/login.css">
 </head>
 <body>
     <div class="login-container">
         <h1>Welcome, We Are <span class="team-todo">"TeamToDo"</span></h1>
-        <form class="login-form" method="POST" action="{{ url_for('main') }}">
+        <form class="login-form" method="POST" action="{{ url_for('login') }}">
             <div class="input-group">
                 <label for="username">ID</label>
                 <input type="text" id="username" name="username" placeholder="id">

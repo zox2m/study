@@ -7,7 +7,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 
 <!-- 이런식으로 static들 추가해주기 -->
-<script src="../static/index.js"></script>
+<script src="../static/dashboard.js"></script>
 <link rel="stylesheet" href="../static/styles.css">
 
 </head>
@@ -19,9 +19,9 @@
   </div>
   <nav>
     <ul>
-      <li><button onclick="location.href='{{ url_for('main') }}'"><img src="{{ url_for('static', filename='yellowhome.png') }}" alt="Home"></button></li>
+      <li><button onclick="location.href='{{ url_for('dashboard') }}'"><img src="{{ url_for('static', filename='yellowhome.png') }}" alt="Home"></button></li>
       <li><button onclick="location.href='{{ url_for('edit_profile') }}'"><img src="{{ url_for('static', filename='blackprofile.png') }}" alt="Profile"></button></li>
-      <li><button onclick="location.href='{{ url_for('index') }}'"><img src="{{ url_for('static', filename='blacklogout.png') }}" alt="Logout"></button></li>
+      <li><button onclick="location.href='{{ url_for('login') }}'"><img src="{{ url_for('static', filename='blacklogout.png') }}" alt="Logout"></button></li>
       
     </ul>
   </nav>

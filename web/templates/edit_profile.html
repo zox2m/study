@@ -14,9 +14,9 @@
         </div>
         <nav>
             <ul>
-                <li><button onclick="location.href='{{ url_for('main') }}'"><img src="{{ url_for('static', filename='yellowhome.png') }}" alt="Home"></button></li>
+                <li><button onclick="location.href='{{ url_for('dashboard') }}'"><img src="{{ url_for('static', filename='yellowhome.png') }}" alt="Home"></button></li>
                 <li><button onclick="location.href='{{ url_for('edit_profile') }}'"><img src="{{ url_for('static', filename='blackprofile.png') }}" alt="Profile"></button></li>
-                <li><button onclick="location.href='{{ url_for('index') }}'"><img src="{{ url_for('static', filename='blacklogout.png') }}" alt="Logout"></button></li>
+                <li><button onclick="location.href='{{ url_for('login') }}'"><img src="{{ url_for('static', filename='blacklogout.png') }}" alt="Logout"></button></li>
             </ul>
         </nav>
         <div class="help">
