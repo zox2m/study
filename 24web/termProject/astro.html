@@ -17,7 +17,7 @@
     </nav>
 
     <main>
-        <form action="astro_result.html" method="get">
+        <form id="astroForm" action="astro_result.html" method="get" onsubmit="return validateForm()">
             <label for="year">년도:</label>
             <input type="text" id="year" name="year" required>
             
@@ -44,5 +44,19 @@
     <footer>
         <p><i>Copyright @ 2024 Jumin Seo</i></p>
     </footer>
+
+    <script>
+        function validateForm() {
+            var year = document.getElementById('year').value;
+            var yearNum = parseInt(year, 10);
+
+            // 년도 입력이 숫자가 아니거나, 범위를 벗어나면 경고 메시지를 표시하고 제출을 막습니다.
+            if (isNaN(yearNum) || yearNum < 1950 || yearNum > 2030) {
+                alert('년도는 1950년에서 2030년 사이의 숫자여야 합니다.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

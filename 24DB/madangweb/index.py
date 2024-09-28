@@ -6,8 +6,8 @@ import pymysql
 # Flask 애플리케이션을 생성
 app = Flask(__name__)
 
-db = pymysql.connect(host="localhost", user="madang",
-                     passwd="madang", db="madangdb", charset="utf8")
+db = pymysql.connect(host="localhost", user="lego",
+                     passwd="lego", db="team_todo", charset="utf8")
 cur = db.cursor() #데이터베이스 커서 생성
 
 # @ decorator: 함수나 클래스의 동작을 변경하거나 확장(추가작업 가능하도록)

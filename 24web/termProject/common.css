@@ -1,19 +1,38 @@
 body {
     font-family: Arial, sans-serif;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    background-image: url(universe.jpg);
 }
 
-header, footer {
+/* clear 활용 */
+header, footer { 
+    clear: both; 
     text-align: center;
     background-color: black;
     color: white;
     padding: 10px 0;
+    margin: 0;
 }
 
-nav {
-    background-color: gray;
-    color: white;
+/* float left 활용 */
+nav { 
+    float: left; 
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.8);
     text-align: center;
     padding: 10px 0;
+    margin: 0;
+}
+main {
+    text-align: center;
+    background-color: rgba(0, 0, 0,0.5);
+    padding: 20px 0;
+    margin: 0 auto; 
 }
 
 nav a {
@@ -22,15 +41,11 @@ nav a {
     text-decoration: none;
 }
 
-nav a:hover {
-    text-decoration: underline; /* Pseudo-class */
+nav a:hover { /* Pseudo-class 1 */
+    text-decoration: underline; 
 }
 
-main {
-    text-align: center;
-    background-color: lightgray;
-    padding: 20px 0;
-}
+
 
 form {
     margin: 20px auto;
@@ -42,13 +57,14 @@ form {
     width: 80%;
 }
 
-form input[type="text"], form select, form button, form input[type="date"], form input[type="radio"] { /* Attribute selector */
+/* Attribute selector 1 2 3 */
+form input[type="text"], form select, form button, form input[type="date"], form input[type="radio"] { 
     margin: 10px;
     padding: 10px;
     font-size: 16px;
 }
 
-form input[type="text"]:focus { /* Pseudo-class */
+form input[type="text"]:focus { /* Pseudo-class 2 */
     border-color: blue;
 }
 
@@ -65,23 +81,83 @@ table, th, td {
 th, td {
     padding: 10px;
     text-align: center;
+    background-color : white;
 }
 
-th:first-child { /* Combinator */
+th:first-child { /* Combinator 1 */
     background-color: lightblue;
 }
 
-tr:nth-child(even) { /* Pseudo-class */
+tr:nth-child(even) { /* Pseudo-class 3 */
     background-color: #f2f2f2;
 }
 
-.clearfix::after { /* Pseudo-element */
+.clearfix::after { /* Pseudo-element 1 */
     content: "";
     display: table;
     clear: both;
 }
 
-.custom::before { /* Pseudo-element */
+.custom::before { /* Pseudo-element 2 */
     content: "⭐";
     padding-right: 5px;
+}
+
+header + nav { /* Combinator 2 */
+    border-top: 2px solid white;
+}
+
+nav ~ main { /* Combinator 3 */
+    border-top: 2px solid lightgray;
+}
+
+/* Flex 하게 정렬 활용 */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.flex-container button {
+    height: 100px;
+    width: 40%;
+}
+
+
+/* 모바일 환경 대응 스타일 */
+@media only screen and (max-width: 900px) {
+    main {
+        width: 90%;
+        padding: 10px;
+    }
+
+    form {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    nav {
+        padding: 5px 0;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    table, th, td {
+        width: 100%;
+    }
+
+
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .flex-container button {
+        height: 50px;
+        width: 80%;
+    }
 }

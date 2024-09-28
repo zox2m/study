@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>API 테스트</title>
+</head>
+<body>
+    <h1>API 테스트</h1>
+    <button id="testButton">API 테스트</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        document.getElementById('testButton').addEventListener('click', function() {
+            var date = '20240101'; // 테스트용 날짜
+            var latitude = '37.5665'; // 테스트용 위도 (서울)
+            var longitude = '126.9780'; // 테스트용 경도 (서울)
+            var serviceKey = 'fC5An%2BEN3x%2F1TJZyWrX9IB1%2BPDtQxZeFu9LwWWX9S%2FpQSjZPkpR5e8DEz%2FBUfEEE3o%2BCSmJmJt8VXpG3sKN9Og%3D%3D'; // 서비스 키
+
+            // 일출 일몰 시각 API 호출
+            $.ajax({
+                url: 'http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo',
+                method: 'GET',
+                data: {
+                    locdate: date,
+                    latitude: latitude,
+                    longitude: longitude,
+                    ServiceKey: serviceKey,
+                },
+                success: function(data) {
+                    console.log(data);
+                    $(data).find('item').each(function() {
+                        var sunrise = $(this).find('sunrise').text();
+                        var sunset = $(this).find('sunset').text();
+                        var moonrise = $(this).find('moonrise').text();
+                        var moonset = $(this).find('moonset').text();
+                        
+                        console.log('일출 시각:', sunrise);
+                        console.log('일몰 시각:', sunset);
+                        console.log('월출 시각:', moonrise);
+                        console.log('월몰 시각:', moonset);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('데이터를 가져오는 데 실패했습니다.', status, error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

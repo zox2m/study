@@ -1,10 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>일출 일몰 시각 검색</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f8463d8e6fc15fb89c294ca3aa35169"></script>
+
+    <!-- 지도 api 호출 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f8463d8e6fc15fb89c294ca3aa35169&libraries=services"></script>
     <link rel="stylesheet" href="common.css">
     <style>
         #map {
@@ -25,9 +28,10 @@
     </nav>
 
     <main>
-        
-        <form action="sunrise_result.html" method="get">
-            <div id="map" style="width:500px;height:400px;"></div> <!--지도 담을 div -->
+        <div id="map"></div>
+        <form id="searchForm" action="sunrise_result.html" method="get" onsubmit="return validateForm()">
+            <input type="hidden" id="latitude" name="latitude" required>
+            <input type="hidden" id="longitude" name="longitude" required>
             <label for="date">날짜:</label>
             <input type="date" id="date" name="date" required>
             <button type="submit">일출 일몰 시간 조회</button>
@@ -38,16 +42,54 @@
         <p><i>Copyright @ 2024 Jumin Seo</i></p>
     </footer>
 
-    <!-- 단순 지도 표시 -->
     <script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
+        function validateForm() {
+            var date = document.getElementById('date').value;
+            if (!date) {
+                alert('날짜를 입력해주세요.');
+                return false;
+            }
+            return true;
+        }
 
-		var map = new kakao.maps.Map(container, options);
-	</script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(37.5665, 126.9780), // 초기 중심 좌표
+            level: 3
+        };
 
+        var map = new kakao.maps.Map(container, options);
+
+        // 지도를 클릭한 위치에 마커를 표시할 변수
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: map.getCenter()
+        });
+
+        // 중심 좌표를 업데이트하는 함수
+        function updateCenter() {
+            var latlng = map.getCenter();
+            document.getElementById('latitude').value = latlng.getLat();
+            document.getElementById('longitude').value = latlng.getLng();
+        }
+
+        // 지도를 클릭했을 때 중심 좌표를 업데이트하고 마커를 이동합니다
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+            var latlng = mouseEvent.latLng;
+            map.setCenter(latlng);
+            marker.setPosition(latlng);
+            updateCenter();
+        });
+
+        // 지도의 중심이 변경되었을 때 중심 좌표를 업데이트합니다
+        kakao.maps.event.addListener(map, 'center_changed', function() {
+            updateCenter();
+        });
+
+        // 페이지가 로드되었을 때 초기 중심 좌표를 설정합니다
+        window.onload = function() {
+            updateCenter();
+        };
+    </script>
 </body>
 </html>

@@ -17,6 +17,8 @@
     </nav>
 
     <main>
+        
+        <!-- table 사용 -->
         <table>
             <thead>
                 <tr>
@@ -42,16 +44,16 @@
             var date = new URLSearchParams(window.location.search).get('date');
             var latitude = new URLSearchParams(window.location.search).get('latitude');
             var longitude = new URLSearchParams(window.location.search).get('longitude');
-            var serviceKey = 'YOUR_SERVICE_KEY'; // 서비스 키를 여기에 넣으세요
+            var serviceKey = 'fC5An%2BEN3x%2F1TJZyWrX9IB1%2BPDtQxZeFu9LwWWX9S%2FpQSjZPkpR5e8DEz%2FBUfEEE3o%2BCSmJmJt8VXpG3sKN9Og%3D%3D'; // 서비스 키
 
             // 일출 일몰 시각 API 호출
             $.ajax({
-                url: 'http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo',
+                url: 'http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getLCRiseSetInfo',
                 method: 'GET',
                 data: {
                     locdate: date.replace(/-/g, ''),
-                    longitude: longitude,
                     latitude: latitude,
+                    longitude: longitude,
                     ServiceKey: serviceKey,
                 },
                 success: function(data) {
@@ -65,8 +67,15 @@
                         results.append('<tr><td>' + sunrise + '</td><td>' + sunset + '</td><td>' + moonrise + '</td><td>' + moonset + '</td></tr>');
                     });
                 },
-                error: function() {
-                    alert('데이터를 가져오는 데 실패했습니다.');
+                error: function(xhr, status, error) {
+                    if (xhr.status === 0) {
+                        alert('네트워크에 연결할 수 없습니다. 인터넷 연결을 확인하세요.');
+                    } else if (xhr.status >= 500) {
+                        alert('서버 오류가 발생했습니다. 나중에 다시 시도해주세요.');
+                    } else {
+                        alert('데이터를 가져오는 데 실패했습니다. 다시 시도해 주세요.');
+                    }
+                    console.error('에러 메시지:', status, error);
                 }
             });
         });
